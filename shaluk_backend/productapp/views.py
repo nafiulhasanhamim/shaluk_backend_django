@@ -22,8 +22,12 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         shop_type = self.request.query_params.get('shop_type', None)
+        shop_name = self.request.query_params.get('shop_name', None)
         if shop_type:
             return Product.objects.filter(shop__shop_type=shop_type)
+        elif shop_name:
+           return Product.objects.filter(shop__shop_name=shop_name)
+           
         return Product.objects.all()
 
     def retrieve(self, request, *args, **kwargs):

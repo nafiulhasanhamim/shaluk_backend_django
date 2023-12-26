@@ -28,4 +28,5 @@ urlpatterns = [
     # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('', include('shopapp.urls')),
     path('', include('productapp.urls')),
+    path('', include('orderapp.urls')),
 ]
